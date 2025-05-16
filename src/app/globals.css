@@ -23,3 +23,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   width: 100%;
   height: 30px;
 }
+
+nextjs-portal {
+    display: none !important;
+  }

@@ -19,6 +19,7 @@ const config: Config = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
+    "./src/assets/images/*.svg",
   ],
   theme: {
     extend: {

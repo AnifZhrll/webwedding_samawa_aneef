@@ -1,23 +1,23 @@
-import type { NextConfig } from "next";
+/** @type {import('next').NextConfig} */
 
-const nextConfig: NextConfig = {
+const nextConfig = {
   images: {
     remotePatterns: [
       {
         protocol: 'http',
         hostname: 'samawabedummy-main.test',
         port: '',
-        pathname: '/api/**',
+        pathname: '/**',
       },
     ],
   },
-  webpack: (config) => {
+webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/,
       use: ["@svgr/webpack"],
     });
     return config;
-  }
+  },
 };
 
 export default nextConfig;
