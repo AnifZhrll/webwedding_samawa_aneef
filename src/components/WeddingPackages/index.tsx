@@ -17,7 +17,6 @@ type PropsWeddingPackagesWrapper = {
 };
 
 function WeddingPackageSlider({ data }: { data: TPackage[] }) {
-  console.log(data);
 
   return (
     <div className="relative">
@@ -61,7 +60,7 @@ function WeddingPackageSlider({ data }: { data: TPackage[] }) {
                     {slide.city.name}
                   </span>
                   <span className="flex gap-x-2 items-center">
-                    <HomeTown className="text-color1"/>
+                    <HomeTown className="text-color1 w-5 h-5"/>
                     Tentram
                   </span>
                 </span>
