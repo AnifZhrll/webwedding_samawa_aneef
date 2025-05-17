@@ -49,11 +49,11 @@ function WeddingPackageGrid({ data }: { data: TPackage[] }) {
             </h6>
             <span className="flex flex-col gap-[14px]">
               <span className="flex gap-x-2 items-center">
-                <Pinpoint />
+                <Pinpoint className="text-color1" />
                 {weddingPackage.city.name}
               </span>
               <span className="flex gap-x-2 items-center">
-                <HomeTown className="w-5 h-5" />
+                <HomeTown className="text-color1 w-5 h-5" />
                 Tentram
               </span>
             </span>
