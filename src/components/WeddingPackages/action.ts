@@ -11,7 +11,6 @@ export async function getData(show: TShow) {
             cache: "no-cache", 
         });
 
-        console.log(url, res);
         return res.json();
     } catch (error) {
         console.error(error);

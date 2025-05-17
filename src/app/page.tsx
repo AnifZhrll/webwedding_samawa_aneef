@@ -59,6 +59,21 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section className="container mx-auto flex flex-col px-16">
+        <div className="flex justify-between items-center mb-8">
+          <h2 className="text-3xl font-bold max-w-sm">
+            Our Latest & Best Wedding Packages
+          </h2>
+          <Link
+            href="/packages"
+            className="border border-dark1 px-5 py-3 text-center rounded-full font-semibold"
+            >Explore All
+            </Link>
+        </div>
+
+        <WeddingPackagesWrapper show="newest" type="grid" />
+      </section>
     </main>
   ); 
 }
