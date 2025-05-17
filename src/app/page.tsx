@@ -5,6 +5,7 @@ import ThumbsUp from '@/assets/images/thumbsup.svg';
 import CreditCard from '@/assets/images/creditcard.svg';
 import Link from "next/link";
 import Cities from "@/components/Cities";
+import Testimonials from "@/components/Testimonials";
 
 export default function Home() {
   return (
@@ -68,7 +69,7 @@ export default function Home() {
           </h2>
           <Link
             href="/packages"
-            className="border border-dark1 px-5 py-3 text-center rounded-full font-semibold"
+            className="border border-dark1 px-5 py-3 text-center rounded-full font-semibold hover:bg-color2 hover:text-light1 transition duration-300 ease-in-out hover:border-light1"
             >Explore All
             </Link>
         </div>
@@ -84,13 +85,28 @@ export default function Home() {
             </h2>
             <Link
               href={`${process.env.HOST_APP}/cities`}
-              className="border border-dark1 px-5 py-3 text-center rounded-full font-semibold"
+              className="border border-dark1 px-5 py-3 text-center rounded-full font-semibold hover:bg-color2 hover:text-light1 transition duration-300 ease-in-out hover:border-light1"
               >
                 Explore All
             </Link>
           </div>
           <Cities />
         </div>
+      </section>
+
+      <section className="flex flex-col">
+        <div className="container mx-auto flex justify-between items-center mb-8 px-16">
+          <h2 className="text-3xl font-bold max-w-xs">
+            Happy Stories of Our Wedding
+          </h2>
+          <Link
+            href={`${process.env.HOST_APP}/testimonials`}
+            className="border border-dark1 px-5 py-3 text-center rounded-full font-semibold hover:bg-color2 hover:text-light1 transition duration-300 ease-in-out hover:border-light1"
+            >Explore All
+            </Link>
+        </div>
+
+      <Testimonials />
       </section>
     </main>
   ); 
