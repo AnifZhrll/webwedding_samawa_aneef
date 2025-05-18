@@ -16,14 +16,14 @@ type PropsWeddingPackagesWrapper = {
   type: "grid" | "slider";
 };
 
-function WeddingPackageGrid({ data }: { data: TPackage[] }) {
+export function WeddingPackageGrid({ data }: { data: TPackage[] }) {
   return (
     <div className="grid grid-cols-4 gap-7">
       {data.map((weddingPackage) => {
         return (
           <div className="flex flex-col gap-y-4 relative" key={weddingPackage.id}>
             <Link 
-              href={`${process.env.HOST_APP}/packages/${weddingPackage.slug}`}
+              href={`/packages/${weddingPackage.slug}`}
               className="absolute inset-0 z-10">
               {/* link here */}
             </Link>
@@ -65,7 +65,7 @@ function WeddingPackageGrid({ data }: { data: TPackage[] }) {
   );
 }
 
-function WeddingPackageSlider({ data }: { data: TPackage[] }) {
+export function WeddingPackageSlider({ data }: { data: TPackage[] }) {
 
   return (
     <div className="relative">
@@ -110,7 +110,7 @@ function WeddingPackageSlider({ data }: { data: TPackage[] }) {
                   </span>
                 </span>
                 <Link
-                  href={`${process.env.HOST_APP}/packages/${slide.slug}`}
+                  href={`/packages/${slide.slug}`}
                   className="flex justify-center bg-color2 py-2 w-full text-light1 rounded-full"
                 >
                   View Package

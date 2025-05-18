@@ -53,6 +53,16 @@ function Slider({ children, swiperClassName, swiperSliderClassName }: Props) {
         </SwiperSlide>
         );
       })}
+              {Children.toArray(children).map( (item: ReactNode, index) => {
+        return (
+        <SwiperSlide 
+        className={swiperSliderClassName}
+        key={index}
+        >
+          {item}
+        </SwiperSlide>
+        );
+      })}
     </Swiper>
   );
 }
