@@ -6,7 +6,7 @@ import Star from "@/assets/images/star.svg";
 import { TTestimonial } from "./types";
 import Image from "next/image";
 
-function Content({ data }: { data: TTestimonial }) {
+export function Content({ data }: { data: TTestimonial }) {
   return (
     <div className="flex flex-col border p-7 rounded-3xl gap-y-4">
       <span className="flex gap-x-1 text-color3">

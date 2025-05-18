@@ -13,7 +13,7 @@ export default function Home() {
       <Header />
 
 
-      <section className="">
+      <section className="-mt-8">
       <WeddingPackagesWrapper show="popular" type="slider"  />
       </section>
 

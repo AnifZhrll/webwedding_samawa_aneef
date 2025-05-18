@@ -2,6 +2,8 @@ export type TShow = "popular" | "newest";
 
 import { TCity } from "@/components/Cities/types";
 import { TOrganizer } from "@/components/Organizer/types";
+import { TBonus } from "@/components/Bonus/types";
+import { TTestimonial } from "@/components/Testimonials/types";
 
 type TPackage = {
     id: number,
@@ -12,5 +14,10 @@ type TPackage = {
     thumbnail: string,
     about: string,
     city: TCity,
-    weddingOrganizer: TOrganizer
+    weddingOrganizer: TOrganizer,
+    photos: {id:number, photo: string}[],
+    weddingBonusPackages: {
+        id: number, bonusPackage: TBonus
+    }[]
+    weddingTestimonials: TTestimonial[]
 }

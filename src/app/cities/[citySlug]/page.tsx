@@ -59,12 +59,12 @@ async function DetailsCityPage({ params }: Request) {
     <main className="flex flex-col gap-y-16">
       <Header />
 
-      <section className="flex flex-col">
+      <section className="flex flex-col -mt-8">
         <div className="container mx-auto flex justify-between items-center mb-8 px-16">
           <span className="flex max-w-sm">
             <h2 className="text-4xl font-bold p-">
               Wedding Packages{" "}
-              <span className="block mt-3">in {city.name} City</span>
+              <span className="block mt-3 text-colo">in {city.name} City</span>
             </h2>
           </span>
 
@@ -104,7 +104,7 @@ async function DetailsCityPage({ params }: Request) {
           </h2>
           <Link
             href="/testimonials"
-            className="border border-dark1 px-5 py-3 text-center rounded-full font-semibold"
+            className="border border-dark1 px-5 py-3 text-center rounded-full font-semibold hover:bg-color2 hover:text-light1 transition duration-300 ease-in-out hover:border-light1"
           >
             Explore All
           </Link>
