@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import { TPackage } from "@/components/WeddingPackages/types";
 import { Content as ContentTestimony } from "@/components/Testimonials";
 import { Content as ContentBonus } from "@/components/Bonus";
+import { Content as ContentOrganizer } from "@/components/Organizer";
 import { Metadata, ResolvingMetadata } from "next";
 import React from "react";
 import Star from "@/assets/images/star.svg";
@@ -59,8 +60,6 @@ async function PackagesDetailsPage({ params }: Request) {
     params.packageSlug
   );
 
-  console.log(details.weddingBonusPackages);
-
   return (
     <main className="flex flex-col gap-y-8 relative pb-16 ">
       <Header />
@@ -105,7 +104,7 @@ async function PackagesDetailsPage({ params }: Request) {
             <h6 className="font-bold text-xl">Bonus Included</h6>
             {
               details.weddingBonusPackages.map( bonus => {
-                return <ContentBonus data={bonus.bonusPackage} key={bonus.id}/>
+                return <ContentBonus data={bonus.bonusPackage} key={bonus.id} slugPackage={details.slug}/>
               })
             }  
             </div>
@@ -155,26 +154,7 @@ async function PackagesDetailsPage({ params }: Request) {
                 </ul>
                 <hr />
                 <h6 className="font-bold">Wedding Organizer</h6>
-                {/* <div
-                  class="flex border border-light3 hover:border-color2 transition-colors duration-300 bg-light1 p-5 rounded-3xl items-center gap-x-5 relative"
-                >
-                  <span
-                    class="relative w-[80px] aspect-square rounded-full overflow-hidden"
-                  >
-                    <img
-                      src="/images/image 5.png"
-                      alt="wedding 2"
-                      class="w-full h-full object-cover absolute"
-                    />
-                  </span>
-                  <span class="flex flex-col">
-                    <span class="text-xl font-bold">Dian Putri</span>
-                    <span class="">194 Packages</span>
-                  </span>
-                  <a href="/organizers.html" class="absolute inset-0">
-                    <!-- link here -->
-                  </a>
-                </div> */}
+                    <ContentOrganizer data={details.weddingOrganizer} />
                 <hr />
                 <Link
                   href={`/packages/${details.slug}/checkout`}
