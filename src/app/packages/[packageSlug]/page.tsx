@@ -11,6 +11,7 @@ import CheckmarkCircle from "@/assets/images/checkmark-circle.svg";
 import thousands from "@/libs/thousands";
 import Link from "next/link";
 import Slides from "./Slides";
+import { getData } from "./action";
 
 type Request = {
   params: {
@@ -18,21 +19,7 @@ type Request = {
   };
 };
 
-async function getData(slug: string) {
-  try {
-    const req = await fetch(
-      `${process.env.HOST_API}/api/wedding-package/${slug}`,
-      {
-        method: "GET",
-        cache: "no-cache",
-      }
-    );
 
-    return req.json();
-  } catch (error) {
-    console.log(error);
-  }
-}
 
 export async function generateMetadata(
   { params }: Request,

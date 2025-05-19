@@ -5,9 +5,11 @@ import React from "react";
 import Logo from "@/assets/images/logo-samawa.svg";
 import { usePathname } from "next/navigation";
 
-type Props = {};
+type Props = {
+  hasPadding?: boolean;
+};
 
-function Header({}: Props) {
+function Header({hasPadding}: Props) {
   const pathname = usePathname();
 
   const mainMenus = [
@@ -34,7 +36,9 @@ function Header({}: Props) {
   ];
 
   return (
-    <header className="flex justify-between container mx-auto items-center pt-8 px-16">
+    <header className={["flex justify-between container mx-auto items-center px-16",
+     hasPadding ? "p-5 bg-white rounded-2xl px-5" : "pt-8"]
+     .join(" ")}>
       <span className="flex gap-x-3 items-center">
         <span className="text-color2">
           <Logo />
