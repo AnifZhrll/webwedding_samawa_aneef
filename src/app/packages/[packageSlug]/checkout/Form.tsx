@@ -23,6 +23,7 @@ import { useFormStatus } from "react-dom";
 import { booking } from "./action";
 import { useActionState, useEffect } from "react";
 import { toast } from "react-toastify";
+import thousands from "@/libs/thousands";
 
 type Props = {
   data: TPackage;
@@ -188,7 +189,7 @@ function Form({ data }: Props) {
                 <IconCurrencyDollar />
               </span>
               <span className="">Package Price (1x)</span>
-              <span className="font-bold ml-auto">Rp 560.300.493</span>
+              <span className="font-bold ml-auto">Rp {thousands(data.price)}</span>
             </div>
 
             <div className="flex items-center gap-x-3">
@@ -196,7 +197,7 @@ function Form({ data }: Props) {
                 <IconTax />
               </span>
               <span className="">Country Tax 11%</span>
-              <span className="font-bold ml-auto">Rp 56.399.403</span>
+              <span className="font-bold ml-auto">Rp {thousands(tax)}</span>
             </div>
 
             <div className="flex items-center gap-x-3">
@@ -213,7 +214,7 @@ function Form({ data }: Props) {
               </span>
               <span className="">Grand Total Amount</span>
               <span className="font-bold text-xl text-color2 ml-auto">
-                Rp 17.488.583.948
+                Rp {thousands(grandTotal)}
               </span>
             </div>
           </div>

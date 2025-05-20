@@ -37,7 +37,7 @@ function Header({hasPadding}: Props) {
 
   return (
     <header className={["flex justify-between container mx-auto items-center px-16",
-     hasPadding ? "p-5 bg-white rounded-2xl px-5" : "pt-8"]
+     hasPadding ? "p-5 bg-white rounded-2xl px-5 z-20" : "pt-8"]
      .join(" ")}>
       <span className="flex gap-x-3 items-center">
         <span className="text-color2">
