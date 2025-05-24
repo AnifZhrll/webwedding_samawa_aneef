@@ -24,7 +24,7 @@ export function Content({ data }: { data: TTestimonial }) {
           <Image
             fill
             className="w-full h-full object-cover object-center"
-            src={`${process.env.HOST_API}/${data.photo}`}
+            src={`${process.env.HOST_API}/storage/${data.photo}`}
             alt={data.name}
             sizes="(max-width: 768px) 100vw"
           />

@@ -261,7 +261,7 @@ async function BookingFoundPage({ params, searchParams }: Request) {
                   <Image
                     fill
                     className="w-full h-full object-cover object-center"
-                    src={`${process.env.HOST_API}/${data.proof}`}
+                    src={`${process.env.HOST_API}/storage/${data.proof}`}
                     alt={`Proof payment booking trx id #${data.booking_trx_id}`}
                     sizes="(max-width: 768px) 100vw"
                   />
@@ -288,7 +288,7 @@ async function BookingFoundPage({ params, searchParams }: Request) {
                 <Image
                   fill
                   className="w-full h-full object-cover object-center"
-                  src={`${process.env.HOST_API}/${data.weddingPackage.thumbnail}`}
+                  src={`${process.env.HOST_API}/storage/${data.weddingPackage.thumbnail}`}
                   alt={data.weddingPackage.name}
                   sizes="(max-width: 768px) 100vw"
                 />

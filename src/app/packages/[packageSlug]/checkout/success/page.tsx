@@ -29,7 +29,7 @@ async function page({params, searchParams}: Request) {
          <Image
            fill
            className="w-full h-full object-cover object-center"
-           src={`${process.env.NEXT_PUBLIC_HOST_API}/${details.thumbnail}`}
+           src={`${process.env.NEXT_PUBLIC_HOST_API}/storage/${details.thumbnail}`}
            alt={details.name}
            sizes="(max-width: 768px) 100vw"
          />

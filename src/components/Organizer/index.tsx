@@ -19,7 +19,7 @@ export function Content({ data }: Props) {
           <Image
             fill
             className="w-full h-full object-cover object-center"
-            src={`${process.env.HOST_API}/${data.icon}`}
+            src={`${process.env.HOST_API}/storage/${data.icon}`}
             alt={data.name}
             sizes="(max-width: 768px) 100vw"
           />

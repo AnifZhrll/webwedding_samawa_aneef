@@ -24,7 +24,7 @@ export function Content({ data, slugPackage }: TPropsContent) {
         <Image
           fill
           className="w-full h-full object-cover object-center"
-          src={`${process.env.NEXT_PUBLIC_HOST_API}/${data.thumbnail}`}
+          src={`${process.env.NEXT_PUBLIC_HOST_API}/storage/${data.thumbnail}`}
           alt={data.name}
           sizes="(max-width: 768px) 100vw"
         />

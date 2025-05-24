@@ -20,7 +20,7 @@ function Content({ data }: { data: TCity[] }) {
               <Image
                 fill
                 className="w-full h-full object-cover object-center"
-                src={`${process.env.HOST_API}/${city.icon}`}
+                src={`${process.env.HOST_API}/storage/${city.icon}`}
                 alt={city.name}
                 sizes="(max-width: 768px) 100vw"
               />

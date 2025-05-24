@@ -55,7 +55,7 @@ function Slides({ data, title, isPopular }: Props) {
           <Image
             fill
             className="w-full h-full object-cover object-center"
-            src={`${process.env.NEXT_PUBLIC_HOST_API}/${currentPhoto?.photo}`}
+            src={`${process.env.NEXT_PUBLIC_HOST_API}/storage/${currentPhoto?.photo}`}
             alt={`${title} 0`}
             sizes="(max-width: 768px) 100vw"
           />
@@ -76,7 +76,7 @@ function Slides({ data, title, isPopular }: Props) {
               <Image
                 fill
                 className="w-full h-full object-cover object-center"
-                src={`${process.env.NEXT_PUBLIC_HOST_API}/${photo.photo}`}
+                src={`${process.env.NEXT_PUBLIC_HOST_API}/storage/${photo.photo}`}
                 alt={`${title}-${photo.photo}`}
                 sizes="(max-width: 768px) 100vw"
               />

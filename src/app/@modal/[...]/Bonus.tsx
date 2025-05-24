@@ -37,7 +37,7 @@ async function Bonus({ bonusId, slugPackage }: Props) {
         <Image
           fill
           className="w-full h-full object-cover object-center"
-          src={`${process.env.HOST_API}/${bonus?.bonusPackage.thumbnail}`}
+          src={`${process.env.HOST_API}/storage/${bonus?.bonusPackage.thumbnail}`}
           alt={bonus?.bonusPackage.name || "thumbnail package bonus"}
           sizes="(max-width: 768px) 100vw"
         />

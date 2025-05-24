@@ -4,8 +4,8 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: 'samawabedummy-main.test',
+        protocol: 'https',
+        hostname: 'aneefdev.site',
         port: '',
         pathname: '/**',
       },

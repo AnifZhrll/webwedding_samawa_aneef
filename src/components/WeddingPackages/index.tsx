@@ -39,7 +39,7 @@ export function WeddingPackageGrid({ data }: { data: TPackage[] }) {
               <Image
                   fill
                   className="w-full h-full object-cover object-center"
-                  src={`${process.env.HOST_API}/${weddingPackage.thumbnail}`}
+                  src={`${process.env.HOST_API}/storage/${weddingPackage.thumbnail}`}
                   alt={weddingPackage.name}
                   sizes="(max-width: 768px) 100vw"
                 />
@@ -83,7 +83,7 @@ export function WeddingPackageSlider({ data }: { data: TPackage[] }) {
                 <Image
                   fill
                   className="w-full h-full object-cover object-center"
-                  src={`${process.env.HOST_API}/${slide.thumbnail}`}
+                  src={`${process.env.HOST_API}/storage/${slide.thumbnail}`}
                   alt={slide.name}
                   sizes="(max-width: 768px) 100vw"
                 />
