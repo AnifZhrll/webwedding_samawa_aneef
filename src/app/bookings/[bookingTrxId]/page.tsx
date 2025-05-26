@@ -1,4 +1,3 @@
-import { TPackage } from "@/components/WeddingPackages/types";
 import React from "react";
 import ArrowDown from "@/assets/images/arrow-down.svg";
 import IconUser from "@/assets/images/user.svg";
@@ -13,56 +12,42 @@ import IconCardShield from "@/assets/images/card-shield.svg";
 import { Content as ContentBonus } from "@/components/Bonus";
 import thousands from "@/libs/thousands";
 import { Content as ContentOrganizer } from '@/components/Organizer';
+import { getBookingData, type TBooking } from "@/libs/api";
 
 type Request = {
-  params: {
+  params: Promise<{
     bookingTrxId: string;
-  };
-  searchParams: {
+  }>;
+  searchParams: Promise<{
     phone: string;
-  };
+  }>;
 };
 
-type TBooking = {
-  id: number;
-  name: string;
-  email: string;
-  proof: string;
-  phone: number;
-  booking_trx_id: string;
-  is_paid: 0 | 1;
-  total_amount: number;
-  started_at: string;
-  weddingPackage: TPackage;
-};
-
-export async function getData(booking_trx_id: string, phone: string) {
-  try {
-    const formData = new FormData();
-    formData.append("booking_trx_id", booking_trx_id);
-    formData.append("phone", phone);
-
-    const req = await fetch(`${process.env.HOST_API}/api/check-booking`, {
-      method: "POST",
-      cache: "no-cache",
-      body: formData,
-    });
-
-    return req.json();
-  } catch (error) {
-    console.log(error);
-  }
-}
+// type TBooking = {
+//   id: number;
+//   name: string;
+//   email: string;
+//   proof: string;
+//   phone: number;
+//   booking_trx_id: string;
+//   is_paid: 0 | 1;
+//   total_amount: number;
+//   started_at: string;
+//   weddingPackage: TPackage;
+// };
 
 async function BookingFoundPage({ params, searchParams }: Request) {
-  const { data }: { data: TBooking } = await getData(
-    params.bookingTrxId,
-    searchParams.phone
+  const bookingTrxId = (await params).bookingTrxId;
+  const phone = (await searchParams).phone;
+
+  const { data }: { data: TBooking } = await getBookingData(
+    bookingTrxId,
+    phone
   );
 
   return (
     <section className="container mx-auto flex flex-col gap-y-4">
-      <h2 className="text-3xl font-bold">Booking #{params.bookingTrxId}</h2>
+      <h2 className="text-3xl font-bold">Booking #{(await params).bookingTrxId}</h2>
 
       <div className="flex gap-x-12">
         <div className="w-8/12">

@@ -39,14 +39,23 @@ export function Content({ data }: { data: TTestimonial }) {
 }
 
 async function Testimonials() {
-  const { data }: { data: TTestimonial[] } = await getData();
+  const { data: testimonialsData }: { data: TTestimonial[] } = await getData();
 
- console.log(data);
+  console.log(testimonialsData); // Gunakan nama variabel yang baru
+
+  // --- PERBAIKAN PENTING: Tambahkan pengecekan jika data kosong atau tidak valid ---
+  if (!Array.isArray(testimonialsData) || testimonialsData.length === 0) {
+    return (
+      <div className="text-center text-gray-500 py-10">
+        Tidak ada testimoni yang tersedia saat ini.
+      </div>
+    );
+  }
 
   return (
     <div className="relative pb-16">
       <Slider swiperClassName="w-full" swiperSliderClassName="!w-[340px] -mx-2 px-6">
-        {data.map((testi) => {
+        {testimonialsData.map((testi) => {
           return <Content key={testi.id} data={testi} />;
         })}
       </Slider>

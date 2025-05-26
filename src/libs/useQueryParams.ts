@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 export default function useQueryParams() {
     const query = useSearchParams();
 
-    let queryParams: {
+    const queryParams: {
         [key: string]: string; 
     } = {};
 

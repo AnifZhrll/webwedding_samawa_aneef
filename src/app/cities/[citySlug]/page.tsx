@@ -13,9 +13,9 @@ import Link from "next/link";
 import Testimonials from "@/components/Testimonials";
 
 type Request = {
-  params: {
+  params: Promise<{
     citySlug: string;
-  };
+  }>;
 };
 
 async function getData(slug: string) {
@@ -36,7 +36,7 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   // read route params
-  const { citySlug } = params;
+  const { citySlug } = await params;
 
   // fetch data
   const { data: city }: { data: TCity } = await getData(citySlug);
@@ -53,7 +53,7 @@ export async function generateMetadata(
 }
 
 async function DetailsCityPage({ params }: Request) {
-  const { data: city }: { data: TCity } = await getData(params.citySlug);
+  const { data: city }: { data: TCity } = await getData((await params).citySlug);
 
   return (
     <main className="flex flex-col gap-y-16">

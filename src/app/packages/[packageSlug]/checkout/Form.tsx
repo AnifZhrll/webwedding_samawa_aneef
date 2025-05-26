@@ -29,10 +29,13 @@ type Props = {
   data: TPackage;
 };
 
-const initialState: {
+
+interface FormState {
   message: string;
   status: 400 | 200;
-} = {
+}
+
+const initialState: FormState = {
   message: "",
   status: 200,
 };
@@ -40,7 +43,7 @@ const initialState: {
 function Form({ data }: Props) {
   const { pending } = useFormStatus();
 
-  const [state, formAction] = useActionState(booking, initialState);
+  const [state, formAction] = useActionState<FormState, FormData>(booking, initialState);
 
   const tax = data.price * 0.11;
   const grandTotal = data.price + tax;

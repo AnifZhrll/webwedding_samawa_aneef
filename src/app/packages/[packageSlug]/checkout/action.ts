@@ -2,6 +2,13 @@
 
 import { redirect } from "next/navigation";
 
+interface BookingActionState {
+  message: string;
+  status: 400 | 200; // 200 untuk sukses, 400 untuk kesalahan sisi klien (client-side errors)
+  // Kita tidak memerlukan bookingTrxId atau phone di sini jika redirect menangani sukses secara langsung.
+  // 'status' dan 'message' terutama untuk kegagalan validasi.
+}
+
 interface File {
   size: number;
   type: string;
@@ -9,7 +16,8 @@ interface File {
   lastModified: number;
 }
 
-export async function booking(prevState: any, formData: FormData) {
+export async function booking(prevState: unknown, formData: FormData): Promise<BookingActionState> {
+
   if (formData.get("name") === "")
     return {
       message: "Name is required",

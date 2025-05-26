@@ -23,7 +23,7 @@ function Form() {
 
   useEffect(() => {
     if (state.status === 400) {
-      toast.error(state.message);
+      toast.error(state.message as string);
     }
   }, [state]);
 

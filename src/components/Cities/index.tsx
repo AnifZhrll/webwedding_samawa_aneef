@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import thousands from "@/libs/thousands";
 
-type Props = {};
+type Props = object;
 
 function Content({ data }: { data: TCity[] }) {
   return (
@@ -40,14 +40,14 @@ function Content({ data }: { data: TCity[] }) {
 }
 
 async function Cities({}: Props) {
-  const { data }: { data: TCity[] } = await getData();
+  const { data: citiesData }: { data: TCity[] } = await getData();
 
-  console.log(data);
-  if (data.length === 0) {
-    return "No data found";
+  console.log(citiesData); // Gunakan citiesData di console.log Anda
+  if (citiesData.length === 0) {
+    return "No data found"; // Anda bisa ganti ini dengan komponen fallback yang lebih baik
   }
 
-  return <Content data={data} />;
+  return <Content data={citiesData} />;
 }
 
 export default Cities;

@@ -128,14 +128,23 @@ async function WeddingPackagesWrapper({
   show,
   type,
 }: PropsWeddingPackagesWrapper) {
-  const { data }: { data: TPackage[] } = await getData(show);
+  const { data: packagesData }: { data: TPackage[] } = await getData(show);
+
+  // Pastikan packagesData adalah array sebelum memproses
+  if (!Array.isArray(packagesData) || packagesData.length === 0) {
+    return (
+      <div className="text-center text-gray-500 py-10">
+        Tidak ada paket pernikahan yang tersedia saat ini.
+      </div>
+    );
+  }
 
   if (type === "grid") {
-    return <WeddingPackageGrid data={data} />;
+    return <WeddingPackageGrid data={packagesData} />;
   }
 
   if (type === "slider") {
-    return <WeddingPackageSlider data={data} />;
+    return <WeddingPackageSlider data={packagesData} />;
   }
 
   return null;

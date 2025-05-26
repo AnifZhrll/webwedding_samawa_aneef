@@ -14,9 +14,9 @@ import Slides from "./Slides";
 import { getData } from "./action";
 
 type Request = {
-  params: {
+  params: Promise<{
     packageSlug: string;
-  };
+  }>;
 };
 
 
@@ -26,7 +26,7 @@ export async function generateMetadata(
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   // read route params
-  const { packageSlug } = params;
+  const { packageSlug } = await params;
 
   // fetch data
   const { data: details }: { data: TPackage } = await getData(packageSlug);
@@ -44,7 +44,7 @@ export async function generateMetadata(
 
 async function PackagesDetailsPage({ params }: Request) {
   const { data: details }: { data: TPackage } = await getData(
-    params.packageSlug
+    (await params).packageSlug
   );
 
   return (

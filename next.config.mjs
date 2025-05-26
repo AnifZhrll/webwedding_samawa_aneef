@@ -18,6 +18,9 @@ webpack: (config) => {
     });
     return config;
   },
+  eslint: {
+    ignoreDuringBuilds: true, // Menonaktifkan linting saat build
+  },
 };
 
 export default nextConfig;

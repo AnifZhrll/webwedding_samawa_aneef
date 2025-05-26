@@ -8,16 +8,16 @@ import thousands from "@/libs/thousands";
 import Form from "./Form";
 
 type Request = {
-    params: {
+    params: Promise<{
       packageSlug: string;
-    };
+    }>;
   };
   
 
 async function PackageCheckoutPage({params}: Request) {
 
       const { data: details }: { data: TPackage } = await getData(
-        params.packageSlug
+        (await params).packageSlug
     );
 
   return (

@@ -7,18 +7,18 @@ import Link from 'next/link';
 import IconCalendarPlus from "@/assets/images/calendar-plus.svg";
 
 type Request = {
-    params: {
+    params: Promise<{
       packageSlug: string;
-    };
-    searchParams: {
+    }>;
+    searchParams: Promise<{
       bookingId: string;
-    };
+    }>;
   };
   
 
 async function page({params, searchParams}: Request) {
           const { data: details }: { data: TPackage } = await getData(
-            params.packageSlug
+            (await params).packageSlug
         );
     
   return <section
@@ -49,7 +49,7 @@ async function page({params, searchParams}: Request) {
         name="booking_trx_id"
         id="booking_trx_id"
         readOnly
-        value={searchParams.bookingId}
+        value={(await searchParams).bookingId}
         placeholder="Write your complete name"
       />
     </div>

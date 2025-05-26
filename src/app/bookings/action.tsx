@@ -2,7 +2,7 @@
 
 import { redirect } from "next/navigation";
 
-export async function checkBooking(prevState: any, formData: FormData) {
+export async function checkBooking(prevState: Record<string, unknown>, formData: FormData) {
 
   if (formData.get("phone") === "")
     return {
