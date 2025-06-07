@@ -18,7 +18,7 @@ type PropsWeddingPackagesWrapper = {
 
 export function WeddingPackageGrid({ data }: { data: TPackage[] }) {
   return (
-    <div className="grid grid-cols-4 gap-7">
+    <div className="grid grid-cols-4 gap-7 max-sm:grid-cols-1">
       {data.map((weddingPackage) => {
         return (
           <div className="flex flex-col gap-y-4 relative" key={weddingPackage.id}>
@@ -70,8 +70,8 @@ export function WeddingPackageSlider({ data }: { data: TPackage[] }) {
   return (
     <div className="relative">
       <Slider
-        swiperClassName="w-full h-[480px]"
-        swiperSliderClassName="-mx-10 px-12 xl:max-w-5xl 2xl:max-w-7xl"
+        swiperClassName="w-full h-[480px] max-sm:h-[400px]"
+        swiperSliderClassName="-mx-10 max-sm: px-12 xl:max-w-5xl 2xl:max-w-7xl"
       >
         {data.map((slide) => {
           return (
@@ -88,30 +88,30 @@ export function WeddingPackageSlider({ data }: { data: TPackage[] }) {
                   sizes="(max-width: 768px) 100vw"
                 />
               </figure>
-              <div className="card-slide-content flex flex-col items-start gap-y-5">
-                <span className="bg-color1 rounded-full text-light1 inline-flex gap-x-2 items-center text-sm py-1 px-3 uppercase">
+              <div className="card-slide-content flex flex-col items-start gap-y-5 max-sm:gap-y-3 max-sm:pl-4 max-sm:pr-2 max-sm:pb-4">
+                <span className="bg-color1 rounded-full text-light1 inline-flex gap-x-2 items-center text-sm py-1 px-3 uppercase max-sm:text-xs max-sm:py-0.5 max-sm:px-2">
                   <Popular />
                   Popular
                 </span>
                 <span className="flex flex-col gap-y-1">
-                  <h6 className="text-[28px] font-bold">{slide.name}</h6>
-                  <span className="text-xl text-color2 font-semibold">
+                  <h6 className="text-[28px] font-bold max-sm:text-[16px]">{slide.name}</h6>
+                  <span className="text-xl text-color2 font-semibold max-sm:text-lg">
                     Rp {thousands(slide.price)}
                   </span>
                 </span>
-                <span className="flex gap-x-4">
+                <span className="flex gap-x-4 max-sm:gap-x-2">
                   <span className="flex gap-x-2 items-center">
-                    <Pinpoint className="text-color1" />
-                    {slide.city.name}
+                    <Pinpoint className="text-color1 max-sm:w-4 max-sm:h-4" />
+                    <span className="max-sm:text-sm">{slide.city.name}</span>
                   </span>
                   <span className="flex gap-x-2 items-center">
-                    <HomeTown className="text-color1 w-5 h-5" />
-                    Tentram
+                    <HomeTown className="text-color1 w-5 h-5 max-sm:w-4 max-sm:h-4" />
+                    <span className="max-sm:text-sm">Tentram</span>
                   </span>
                 </span>
                 <Link
                   href={`/packages/${slide.slug}`}
-                  className="flex justify-center bg-color2 py-2 w-full text-light1 rounded-full"
+                  className="flex justify-center bg-color2 py-2 w-full text-light1 rounded-full max-sm:py-1 max-sm:text-sm"
                 >
                   View Package
                 </Link>

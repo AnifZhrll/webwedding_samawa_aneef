@@ -10,6 +10,13 @@
   transform: translateY(-45%) rotate3d(1, 0, 0, -20deg);
 }
 
+@media (max-width: 640px) { 
+  .card-slide-content {
+    left: 0;
+    max-width: 90%;
+  }
+}
+
 .swiper-slide-active .card-slide-content {
   @apply opacity-100;
   transform: translateY(-50%) rotate3d(1, 1, 1, 0deg);

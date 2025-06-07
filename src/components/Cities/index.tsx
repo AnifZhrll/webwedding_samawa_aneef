@@ -9,7 +9,7 @@ type Props = object;
 
 function Content({ data }: { data: TCity[] }) {
   return (
-    <div className="grid grid-cols-3 gap-7">
+    <div className="grid grid-cols-3 gap-7 max-sm:grid-cols-1">
       {data.map((city) => {
         return (
           <div
