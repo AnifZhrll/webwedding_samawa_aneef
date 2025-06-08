@@ -2,11 +2,10 @@ import Image from "next/image";
 import React from "react";
 import Form from "./Form";
 
-
 function page() {
   return (
     <>
-      <section className="absolute top-0 left-0 w-full z-10 flex h-screen">
+      <section className="absolute top-0 left-0 w-full z-10 flex h-screen max-sm:-top-20 max-sm:h-auto">
         <div className="w-6/12 min-h-screen relative ml-auto">
           <Image
             fill
@@ -17,10 +16,8 @@ function page() {
           />
         </div>
       </section>
-
-      <section className="pt-8 container mx-auto relative z-20 flex mt-10">
+      <section className="pt-8 container mx-auto relative z-20 flex mt-10 max-sm:z-10">
         <Form />
-
       </section>
     </>
   );

@@ -30,7 +30,7 @@ function Form() {
   return (
     <form
     action={formAction} 
-    className="bg-light1 rounded-2xl flex flex-col gap-y-5 w-4/12 p-5">
+    className="bg-light1 rounded-2xl flex flex-col gap-y-5 w-4/12 p-5 max-sm:w-full">
       <h1 className="text-xl font-bold">Check My Booking</h1>
 
       <div className="flex flex-col w-full gap-y-2">
